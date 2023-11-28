@@ -26,4 +26,31 @@ int GetKeyDown(){
 		return _getch();
 	}
 	return 0;
+}
+
+void DrawDino(int dinoY){
+	GotoXY(0, dinoY);
+	static bool legFlag = true;
+	cout<<("        $$$$$$$ \n");
+	cout<<("       $$ $$$$$$\n");
+	cout<<("       $$$$$$$$$\n");
+	cout<<("$      $$$      \n");
+	cout<<("$$     $$$$$$$  \n");
+	cout<<("$$$   $$$$$     \n");
+	cout<<(" $$  $$$$$$$$$$ \n");
+	cout<<(" $$$$$$$$$$$    \n");
+	cout<<("  $$$$$$$$$$    \n");
+	cout<<("    $$$$$$$$    \n");
+	cout<<("     $$$$$$     \n");
+	if (legFlag){
+		cout<<("     $    $$$    \n");
+		cout<<("     $$          ");
+		legFlag = false;
+	}
+	else{
+		cout<<("     $$$  $     \n");
+		cout<<("          $$    ");
+		legFlag = true;
+	}
+}
 
