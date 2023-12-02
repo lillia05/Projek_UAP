@@ -67,4 +67,3 @@ void DrawTree(int treeX)
 	GotoXY(treeX, TREE_BOTTOM_Y + 4);
 	cout<<(" ## ");
 }
-
