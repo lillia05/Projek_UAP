@@ -67,3 +67,20 @@ void DrawTree(int treeX)
 	GotoXY(treeX, TREE_BOTTOM_Y + 4);
 	cout<<(" ## ");
 }
+
+void DrawGameOver(const int score){
+	system("cls");
+	int x = 22;
+	int y = 8;
+	GotoXY(x, y);
+	cout<<("===========================");
+	GotoXY(x, y + 1);
+	cout<<("======G A M E O V E R======");
+	GotoXY(x, y + 2);	
+	cout<<("===========================");
+	GotoXY(x, y + 5);
+	cout<<"Score Anda Adalah : "<<score;
+
+	cout<<("\n\n\n\n\n\n\n\n\n");
+	system("pause");
+}
