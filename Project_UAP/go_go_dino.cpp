@@ -54,3 +54,17 @@ void DrawDino(int dinoY){
 	}
 }
 
+void DrawTree(int treeX)
+{
+	GotoXY(treeX, TREE_BOTTOM_Y);
+	cout<<("####");
+	GotoXY(treeX, TREE_BOTTOM_Y + 1);
+	cout<<(" ## ");
+	GotoXY(treeX, TREE_BOTTOM_Y + 2);
+	cout<<(" ## ");
+	GotoXY(treeX, TREE_BOTTOM_Y + 3);
+	cout<<(" ## ");
+	GotoXY(treeX, TREE_BOTTOM_Y + 4);
+	cout<<(" ## ");
+}
+
