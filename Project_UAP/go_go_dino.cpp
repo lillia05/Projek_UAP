@@ -54,8 +54,7 @@ void DrawDino(int dinoY){
 	}
 }
 
-void DrawTree(int treeX)
-{
+void DrawTree(int treeX){
 	GotoXY(treeX, TREE_BOTTOM_Y);
 	cout<<("####");
 	GotoXY(treeX, TREE_BOTTOM_Y + 1);
@@ -83,4 +82,28 @@ void DrawGameOver(const int score){
 
 	cout<<("\n\n\n\n\n\n\n\n\n");
 	system("pause");
+}
+
+bool isCollision(const int treeX, const int dinoY){
+	GotoXY(0, 0);
+	cout<<("treeX : %d, dinoY : %d", treeX, dinoY); 
+	if (treeX <= 8 && treeX >= 4 &&
+		dinoY > 8)
+	{
+		return true;
+	}
+	return false;
+}
+
+
+int main(){
+	SetConsoleView();
+	
+	int dinoY = DINO_BOTTOM_Y;
+	int treeX = TREE_BOTTOM_X;
+
+	DrawDino(dinoY);
+	DrawTree(treeX);
+	
+	return 0;
 }
