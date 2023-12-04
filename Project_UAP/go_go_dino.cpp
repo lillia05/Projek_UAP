@@ -98,12 +98,63 @@ bool isCollision(const int treeX, const int dinoY){
 
 int main(){
 	SetConsoleView();
-	
-	int dinoY = DINO_BOTTOM_Y;
-	int treeX = TREE_BOTTOM_X;
 
-	DrawDino(dinoY);
-	DrawTree(treeX);
-	
+	while (true)		
+	{
+		bool isJumping = false;
+		bool isBottom = true;
+		const int gravity = 3;
+		
+		int dinoY = DINO_BOTTOM_Y;
+		int treeX = TREE_BOTTOM_X;
+		
+		int score = 0;
+		clock_t start, curr;	
+		start = clock();	
+
+		while (true){
+			if(isCollision(treeX, dinoY))
+				break;
+
+			if (GetKeyDown() == 'w' && isBottom){
+				isJumping = true;
+				isBottom = false;
+			}
+			if (isJumping){
+				dinoY -= gravity;
+			}
+			else{
+				dinoY += gravity;
+			}
+			if (dinoY >= DINO_BOTTOM_Y){
+				dinoY = DINO_BOTTOM_Y;
+				isBottom = true;
+			}
+
+			treeX -= 2;
+			if (treeX <= 0){
+				treeX = TREE_BOTTOM_X;
+			}
+
+			if (dinoY <= 3){
+				isJumping = false;
+			}
+
+			DrawDino(dinoY);	
+			DrawTree(treeX);	
+
+			curr = clock();			
+			if (((curr - start) / CLOCKS_PER_SEC) >= 1)	{
+				score++;	
+				start = clock();	
+			}
+			Sleep(100);
+			system("cls");	
+
+			GotoXY(25, 0);	
+			cout<<"Score : "<<score;
+		}
+		DrawGameOver(score);
+	}
 	return 0;
 }

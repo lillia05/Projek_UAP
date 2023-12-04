@@ -11,13 +11,6 @@ void instruction(){
 	endwin();
 }
 
-void game(){
-	initscr();
-	clear();
-	system("go_dino");
-	getch();
-	endwin();
-}
 	
 int main(){
 	curs_set(0);
@@ -50,18 +43,19 @@ int main(){
 	
 	while (true)
 	{
-		char jawab = getch();
-		if (jawab == '1')
+		char option = getch();
+		if (option == '1')
 		{
-//			game();
+			endwin();
+			system("go_go_dino");
 			break;
 		}
-		else if (jawab == '2')
+		else if (option == '2')
 		{
 			instruction();
 			break;
 		}
-		else if (jawab == '3')
+		else if (option == '3')
 		{
 			endwin();
 			exit(0);
