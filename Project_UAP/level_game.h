@@ -158,6 +158,6 @@ void easy(){
 	}
 }
 
-//int main(){
-//	easy();
-//}
+int main(){
+	easy();
+}

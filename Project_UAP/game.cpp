@@ -1,7 +1,10 @@
 #include <curses.h>
 #include <windows.h>
 #include <iostream>
+//#include "level_game.h"
 using namespace std;
+
+//void easy();
 	
 void instruction(){
 	initscr();
@@ -36,6 +39,7 @@ void game_start(){
 		{
 			endwin();
 			system("easy");
+			//void easy();
 			break;
 		}
 		else if (select == '2')
@@ -69,14 +73,14 @@ int main(){
 	system("color E0");
 	initscr();
 	
-//	mvprintw(7,20,"  _____  ____        _____  ____       _____ _____ _   _  ____  ");
-//	mvprintw(8,20," / ____|/ __ \      / ____|/ __ \     |  __ \_   _| \ | |/ __ \ ");
-//	mvprintw(9,20,"| |  __| |  | |    | |  __| |  | |    | |  | || | |  \| | |  | |");
-//	mvprintw(10,20,"| | |_ | |  | |    | | |_ | |  | |    | |  | || | | . ` | |  | |");
-//	mvprintw(11,20,"| |__| | |__| |    | |__| | |__| |    | |__| || |_| |\  | |__| |");
-//	mvprintw(12,20," \_____|\____/      \_____|\____/     |_____/_____|_| \_|\____/ ");
-//	refresh();
-//	Sleep(600);
+	mvprintw(7,25,"  _____   ____        _____   ____       _____  _______ _   _   ____  ");
+	mvprintw(8,25," / ____| / __ \\      / ____| / __ \\     |  __ \\ |_   _|| \\ | | / __ \\ ");
+	mvprintw(9,25,"| |  __ | |  | |    | |  __ | |  | |    | |  | |  | |  |  \\| || |  | |");
+	mvprintw(10,25,"| | |_ || |  | |    | | |_ || |  | |    | |  | |  | |  | . ` || |  | |");
+	mvprintw(11,25,"| |__| || |__| |    | |__| || |__| |    | |__| | _| |_ | |\\  || |__| |");
+	mvprintw(12,25," \\_____| \\____/      \\_____| \\____/     |_____/ |_____||_| \\_| \\____/ ");
+	refresh();
+	Sleep(1000);
 	
 	mvprintw(15,50," 1. Game start     ");
 	refresh();
@@ -99,7 +103,6 @@ int main(){
 		char option = getch();
 		if (option == '1')
 		{
-			
 			game_start();
 			break;
 		}
