@@ -96,7 +96,7 @@ bool isCollision(const int treeX, const int dinoY){
 }
 
 
-int main(){
+void game(int level){
 	SetConsoleView();
 
 	while (true)		
@@ -148,7 +148,7 @@ int main(){
 				score++;	
 				start = clock();	
 			}
-			Sleep(40);
+			Sleep(level);
 			system("cls");	
 
 			GotoXY(25, 0);	
@@ -156,5 +156,63 @@ int main(){
 		}
 		DrawGameOver(score);
 	}
-	return 0;
 }
+
+void game_start(){
+	//clear();
+	while (true)
+	{int x = 23;
+	int y = 8;
+	GotoXY(x, y);
+	cout<<(" _                          _");
+	GotoXY(x, y + 1);
+	cout<<("| |------------------------| |");
+	GotoXY(x, y + 2);
+	cout<<("| |      SELECT LEVEL      | |");
+	GotoXY(x, y + 3);
+	cout<<("| |                        | |");
+	GotoXY(x, y + 4);
+	cout<<("| |    1. easy             | |");
+	GotoXY(x, y + 5);
+	cout<<("| |    2. medium           | |");
+	GotoXY(x, y + 6);
+	cout<<("| |    3. hard             | |");
+	GotoXY(x, y + 7);
+	cout<<("| |    4. extreme          | |");
+	GotoXY(x, y + 8);
+	cout<<("|_|------------------------|_|");
+		
+	GotoXY(x + 3, y + 10);
+	cout<<("  select :  ");
+	Sleep(400);
+	
+		char select = getch();
+		cin>>select;
+		if (select == '1')
+		{
+			game(100);
+			break;
+		}
+		else if (select == '2')
+		{
+
+			game(70);
+			break;
+		}
+		else if (select == '3')
+		{
+			game(40);
+			break;
+		}
+		else if (select == '4')
+		{
+			game(20);
+			break;
+		}
+	}
+}
+
+int main(){
+	game_start();
+}
+

@@ -1,66 +1,13 @@
 #include <curses.h>
 #include <windows.h>
 #include <iostream>
-//#include "level_game.h"
 using namespace std;
 
-//void easy();
 	
 void instruction(){
 	initscr();
 	clear();
 	mvprintw(7,50,"INSTRUKSI PERMAINAN");
-	getch();
-	endwin();
-}
-
-void game_start(){
-	initscr();
-	clear();
-	while (true)
-	{
-		mvprintw(8,45," _                          _");
-		mvprintw(9,45,"| |------------------------| |");
-		mvprintw(10,45,"| |      SELECT LEVEL      | |");
-		mvprintw(11,45,"| |                        | |");
-		mvprintw(12,45,"| |    1. easy             | |");
-		mvprintw(13,45,"| |    2. medium           | |");
-		mvprintw(14,45,"| |    3. hard             | |");
-		mvprintw(15,45,"| |    4. extreme          | |");
-		mvprintw(16,45,"|_|------------------------|_|");
-		refresh();
-		
-		mvprintw(19,54,"  select :  ");
-		refresh();
-		Sleep(400);
-	
-		char select = getch();
-		if (select == '1')
-		{
-			endwin();
-			system("easy");
-			//void easy();
-			break;
-		}
-		else if (select == '2')
-		{
-			endwin();
-			system("medium");
-			break;
-		}
-		else if (select == '3')
-		{
-			endwin();
-			system("hard");
-			break;
-		}
-		else if (select == '4')
-		{
-			endwin();
-			system("extreme");
-			break;
-		}
-	}
 	getch();
 	endwin();
 }
@@ -102,7 +49,8 @@ int main(){
 		char option = getch();
 		if (option == '1')
 		{
-			game_start();
+			endwin();
+			system("level_game");
 			break;
 		}
 		else if (option == '2')
