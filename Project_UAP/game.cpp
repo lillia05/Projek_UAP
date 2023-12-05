@@ -65,7 +65,6 @@ void game_start(){
 	endwin();
 }
 
-	
 int main(){
 	curs_set(0);
 	int nlines =5; int ncols = 32; int y0 = 1; int x0=5;
@@ -80,7 +79,7 @@ int main(){
 	mvprintw(11,25,"| |__| || |__| |    | |__| || |__| |    | |__| | _| |_ | |\\  || |__| |");
 	mvprintw(12,25," \\_____| \\____/      \\_____| \\____/     |_____/ |_____||_| \\_| \\____/ ");
 	refresh();
-	Sleep(1000);
+	Sleep(600);
 	
 	mvprintw(15,50," 1. Game start     ");
 	refresh();
