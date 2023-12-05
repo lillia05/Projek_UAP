@@ -69,15 +69,37 @@ void DrawTree(int treeX){
 
 void DrawGameOver(const int score){
 	system("cls");
-	int x = 22;
-	int y = 8;
+	int x = 20;
+	int y = 6;
 	GotoXY(x, y);
-	cout<<("===========================");
+	cout<<("   ____      _      __  __  U _____ u    ");
 	GotoXY(x, y + 1);
-	cout<<("======G A M E O V E R======");
+	cout<<("U /'___|uU  /'\\  uU|' \\/ '|u\\| ___'|/    ");
 	GotoXY(x, y + 2);	
-	cout<<("===========================");
-	GotoXY(x, y + 5);
+	cout<<("\\| |  _ / \\/ _ \\/ \\| |\\/| |/ |  _|'      ");
+	GotoXY(x, y + 3);	
+	cout<<(" | |_| |  / ___ \\  | |  | |  | |___      ");
+	GotoXY(x, y + 4);	
+	cout<<("  \\____| /_/   \\_\\ |_|  |_|  |_____|     ");
+	GotoXY(x, y + 5);	
+	cout<<("  _)(|_   \\\\    >><<,-,,-.   <<   >>     ");
+	GotoXY(x, y + 6);	
+	cout<<(" (__)__) (__)  (__)(./  \\.) (__) (__)    ");
+	GotoXY(x, y + 7);	
+	cout<<("   U  ___ u__     __ U _____ u   ____    ");
+	GotoXY(x, y + 8);
+	cout<<("    \\/'_ \\/\\ \\   /'/u\\| ___'|/U |  _'\\ u ");
+	GotoXY(x, y + 9);	
+	cout<<("    | | | | \\ \\ / //  |  _|'   \\| |_) |/ ");
+	GotoXY(x, y + 10);	
+	cout<<(".-,_| |_| | /\\ V /_,-.| |___    |  _ <   ");
+	GotoXY(x, y + 11);	
+	cout<<(" \\_)-\\___/ U  \\_/-(_/ |_____|   |_| \\_\\  ");
+	GotoXY(x, y + 12);	
+	cout<<("      \\\\     //       <<   >>   //   \\\\_ ");
+	GotoXY(x, y + 13);	
+	cout<<("     (__)   (__)     (__) (__) (__)  (__)");
+	GotoXY(x + 5, y + 16);
 	cout<<"Score Anda Adalah : "<<score;
 
 	cout<<("\n\n\n\n\n\n\n\n\n");
