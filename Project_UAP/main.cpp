@@ -3,16 +3,42 @@
 #include <iostream>
 using namespace std;
 
+void utama();
 	
 void instruction(){
 	initscr();
 	clear();
-	mvprintw(7,50,"INSTRUKSI PERMAINAN");
-	getch();
-	endwin();
+	mvprintw(6,45,"-----------------------");
+	mvprintw(7,45,"| INSTRUKSI PERMAINAN |");
+	mvprintw(8,45,"-----------------------");
+	mvprintw(11,33,"Go Go Dino adalah permainan yang seru dan mendebarkan.");
+    mvprintw(13,20,"Pemain mengendalikan dinosaurus dengan menekan tombol 'w' pada keyboard untuk melompat. ");
+	mvprintw(15,10,"Bersiaplah untuk melibatkan diri dalam petualangan dinosaurus yang penuh energi dan menjadi juara Go Go Dino!");
+    mvprintw(20,35, "        Apakah Anda Sudah mengerti? ");
+    mvprintw(22,34," ===============================================");
+    mvprintw(25,35,"1. Ya, Mengerti");
+    mvprintw(25,60,"2. Tidak Mengerti");
+    
+    while (true)
+	{
+		char pilih = getch();
+		if (pilih == '1')
+		{
+			endwin();
+			utama();
+			break;
+		}
+		else if (pilih == '2')
+		{
+			endwin();
+			exit(0);
+		}
+		endwin();
+	}
 }
 
-int main(){
+void utama(){
+	clear();
 	curs_set(0);
 	int nlines =5; int ncols = 32; int y0 = 1; int x0=5;
 	WINDOW *win = newwin(nlines, ncols, y0, x0);
@@ -30,19 +56,15 @@ int main(){
 	
 	mvprintw(15,50," 1. Game start     ");
 	refresh();
-	Sleep(400);
 
 	mvprintw(16,50," 2. Instruction    ");
 	refresh();
-	Sleep(400);
 	
 	mvprintw(17,50," 3. Exit        ");
 	refresh();
-	Sleep(400);
 	
 	mvprintw(19,50," select option :  ");
 	refresh();
-	Sleep(400);
 	
 	while (true)
 	{
@@ -65,4 +87,9 @@ int main(){
 		}
 	}
 	endwin();
+}
+
+int main(){
+	curs_set(0);
+	utama();
 }
