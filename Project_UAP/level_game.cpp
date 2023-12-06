@@ -101,7 +101,33 @@ void DrawGameOver(const int score){
 	cout<<("     (__)   (__)     (__) (__) (__)  (__)");
 	GotoXY(x + 5, y + 16);
 	cout<<"Score Anda Adalah : "<<score;
+	GotoXY(x + 5, y + 20);
+    cout << "========================";
+    GotoXY(x + 5, y + 21);
+    cout << "  Options :";
+    GotoXY(x + 5, y + 22);
+    cout << "  1. coba lagi ";
+    GotoXY(x + 5, y + 23);
+    cout << "  2. keluar ";
+    
+    char choice;
+    while (true) {
+        GotoXY(26, 30);
+        cout << "Masukkan pilihanmu : ";
+        cin >> choice;
 
+        if (choice == '1') {
+            cout << "Mengulang permainan...\n";
+            break;
+        }
+        else if (choice == '2') {
+            cout << "Keluar dari permainan ...\n";
+            exit(0);
+        }
+        else {
+            cout << "Pilihan tidak valid. Silahkan masukkan 1 atau 2.\n";
+        }
+	}
 	cout<<("\n\n\n\n\n\n\n\n\n");
 	system("pause");
 }
