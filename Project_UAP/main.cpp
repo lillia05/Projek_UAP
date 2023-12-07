@@ -31,6 +31,7 @@ void instruction(){
 		else if (pilih == '2')
 		{
 			endwin();
+			instruction();
 			exit(0);
 		}
 		endwin();
