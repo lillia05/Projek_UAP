@@ -74,7 +74,7 @@ int highscore = 0;
 void DrawGameOver(const int score){
 	system("cls");
 	int x = 20;
-	int y = 6;
+	int y = 3;
 	GotoXY(x, y);
 	cout<<("   ____      _      __  __  U _____ u    ");
 	GotoXY(x, y + 1);
@@ -108,19 +108,19 @@ void DrawGameOver(const int score){
 	GotoXY(x + 4, y + 15);
 	cout<<" Score Anda Adalah : "<<score;
 	GotoXY(x + 4, y + 16);
-	cout<<" High Score : "<<highscore;
+	cout<<"     High Score : "<<highscore;
 	GotoXY(x + 4, y + 17);
     cout<<"=========================";
-    GotoXY(x + 2, y + 21);
+    GotoXY(x + 2, y + 19);
     cout << "Apakah Anda masih ingin bermain?";
-    GotoXY(x + 4, y + 22);
+    GotoXY(x + 4, y + 20);
     cout << "  1. Ya";
-    GotoXY(x + 10, y + 22);
+    GotoXY(x + 10, y + 20);
     cout << "  2. Tidak ";
     
     char choice;
     while (true) {
-        GotoXY(26, 30);
+        GotoXY(26, 25);
         cout << "Masukkan pilihanmu : ";
         cin >> choice;
 
@@ -158,6 +158,16 @@ void SaveScore(const int score) {
         file.close();
     }
 }
+
+int LoadScore() {
+    ifstream file("highscore.txt");
+    int score = 0;
+    if (file.is_open()) {
+        file >> score;
+        file.close();
+    }
+    return score;
+} 
 
 void game(int level){
 	SetConsoleView();
@@ -215,10 +225,21 @@ void game(int level){
 			system("cls");	
 
 			GotoXY(25, 0);	
-			cout<<"Score : "<<score;
-		}
-		DrawGameOver(score);
+			cout<<" High Score : "<<highscore;
+			GotoXY(25, 1);
+			cout<<" Score Anda : "<<score;
+			
+			if (isCollision(treeX, dinoY)) {
+                if (score > highscore) {
+                    highscore = score;
+                    SaveScore(highscore);
+                }
+		
+				DrawGameOver(score);
+				break;
+			}
 	}
+}
 }
 
 void game_start(){
