@@ -2,6 +2,8 @@
 #include<windows.h>
 #include<conio.h>
 #include<time.h>
+#include<fstream>
+
 #define DINO_BOTTOM_Y 12
 #define TREE_BOTTOM_Y 20
 #define TREE_BOTTOM_X 45
@@ -67,6 +69,8 @@ void DrawTree(int treeX){
 	cout<<(" ## ");
 }
 
+int highscore = 0;
+
 void DrawGameOver(const int score){
 	system("cls");
 	int x = 20;
@@ -99,16 +103,20 @@ void DrawGameOver(const int score){
 	cout<<("      \\\\     //       <<   >>   //   \\\\_ ");
 	GotoXY(x, y + 13);	
 	cout<<("     (__)   (__)     (__) (__) (__)  (__)");
-	GotoXY(x + 5, y + 16);
-	cout<<"Score Anda Adalah : "<<score;
-	GotoXY(x + 5, y + 20);
-    cout << "========================";
-    GotoXY(x + 5, y + 21);
-    cout << "  Options :";
-    GotoXY(x + 5, y + 22);
-    cout << "  1. coba lagi ";
-    GotoXY(x + 5, y + 23);
-    cout << "  2. keluar ";
+	GotoXY(x + 4, y + 14);
+    cout<<"=========================";	
+	GotoXY(x + 4, y + 15);
+	cout<<" Score Anda Adalah : "<<score;
+	GotoXY(x + 4, y + 16);
+	cout<<" High Score : "<<highscore;
+	GotoXY(x + 4, y + 17);
+    cout<<"=========================";
+    GotoXY(x + 2, y + 21);
+    cout << "Apakah Anda masih ingin bermain?";
+    GotoXY(x + 4, y + 22);
+    cout << "  1. Ya";
+    GotoXY(x + 10, y + 22);
+    cout << "  2. Tidak ";
     
     char choice;
     while (true) {
@@ -143,6 +151,13 @@ bool isCollision(const int treeX, const int dinoY){
 	return false;
 }
 
+void SaveScore(const int score) {
+    ofstream file("highscore.txt");
+    if (file.is_open()) {
+        file << score;
+        file.close();
+    }
+}
 
 void game(int level){
 	SetConsoleView();
