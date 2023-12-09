@@ -43,7 +43,7 @@ void utama(){
 	curs_set(0);
 	int nlines =5; int ncols = 32; int y0 = 1; int x0=5;
 	WINDOW *win = newwin(nlines, ncols, y0, x0);
-	system("color E0");
+	//system("color E0");
 	initscr();
 	
 	mvprintw(7,25,"  _____   ____        _____   ____       _____  _______ _   _   ____  ");

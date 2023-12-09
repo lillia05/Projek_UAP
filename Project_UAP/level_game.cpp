@@ -1,3 +1,4 @@
+#include<iostream> 
 #include<iostream>
 #include<windows.h>
 #include<conio.h>
@@ -245,7 +246,8 @@ void game(int level){
 void game_start(){
 	//clear();
 	while (true)
-	{int x = 23;
+	{
+	int x = 23;
 	int y = 8;
 	GotoXY(x, y);
 	cout<<(" _                          _");
@@ -264,9 +266,11 @@ void game_start(){
 	GotoXY(x, y + 7);
 	cout<<("| |    4. extreme          | |");
 	GotoXY(x, y + 8);
+	cout<<("| |    5. back             | |");
+	GotoXY(x, y + 9);
 	cout<<("|_|------------------------|_|");
 		
-	GotoXY(x + 3, y + 10);
+	GotoXY(x + 3, y + 11);
 	cout<<("  select :  ");
 	Sleep(400);
 	
@@ -291,6 +295,12 @@ void game_start(){
 		else if (select == '4')
 		{
 			game(20);
+			break;
+		}
+		else if (select == '5')
+		{
+			system("utama");
+			game_start();
 			break;
 		}
 	}
