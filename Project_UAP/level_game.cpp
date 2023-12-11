@@ -116,22 +116,20 @@ void DrawGameOver(const int score){
     cout<<"=========================";
     GotoXY(x + 2, y + 19);
     cout << "Apakah Anda masih ingin bermain?";
-    GotoXY(x + 1 , y + 20);
+    GotoXY(x + 4 , y + 20);
     cout << "  1. Ya";
-    GotoXY(x + 6, y + 20);
+    GotoXY(x + 10, y + 20);
     cout << "  2. Tidak ";
-    GotoXY(x + 13, y + 20);
-    cout << "  3. Home ";
     
     char choice;
     while (true) {
-        GotoXY(26, 25);
+        GotoXY(25, 25);
         cout << "Masukkan pilihanmu : ";
         cin >> choice;
 
         if (choice == '1') {
         	system ("cls");
-            cout << "Mengulang permainan...\n";
+            cout << "tunggu...\n";
             Sleep(500);
             system ("cls");
             game_start();
@@ -139,17 +137,9 @@ void DrawGameOver(const int score){
         }
         else if (choice == '2') {
             cout << "Keluar dari permainan ...\n";
-            Sleep(500);
+            Sleep(100);
             system ("cls");
             exit(0);
-            break;
-        }
-        else if (choice == '3') {
-        	system ("cls");
-            cout << "Kembali ke menu awal ...\n";
-            Sleep(500);
-            system ("cls");
-            system("main.exe");
             break;
         }
         else {
