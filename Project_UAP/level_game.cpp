@@ -15,7 +15,6 @@ void SetConsoleView(){
 	system("mode con:cols=150 lines=150");
 }
 
-
 void GotoXY(int x, int y){
 	COORD Pos;
 	Pos.X = 2 * x;
@@ -70,7 +69,10 @@ void DrawTree(int treeX){
 	cout<<(" ## ");
 }
 
+
 int highscore = 0;
+
+void game_start();
 
 void DrawGameOver(const int score){
 	system("cls");
@@ -114,10 +116,12 @@ void DrawGameOver(const int score){
     cout<<"=========================";
     GotoXY(x + 2, y + 19);
     cout << "Apakah Anda masih ingin bermain?";
-    GotoXY(x + 4, y + 20);
+    GotoXY(x + 1 , y + 20);
     cout << "  1. Ya";
-    GotoXY(x + 10, y + 20);
+    GotoXY(x + 6, y + 20);
     cout << "  2. Tidak ";
+    GotoXY(x + 13, y + 20);
+    cout << "  3. Home ";
     
     char choice;
     while (true) {
@@ -126,15 +130,32 @@ void DrawGameOver(const int score){
         cin >> choice;
 
         if (choice == '1') {
+        	system ("cls");
             cout << "Mengulang permainan...\n";
+            Sleep(500);
+            system ("cls");
+            game_start();
             break;
         }
         else if (choice == '2') {
             cout << "Keluar dari permainan ...\n";
+            Sleep(500);
+            system ("cls");
             exit(0);
+            break;
+        }
+        else if (choice == '3') {
+        	system ("cls");
+            cout << "Kembali ke menu awal ...\n";
+            Sleep(500);
+            system ("cls");
+            system("main.exe");
+            break;
         }
         else {
-            cout << "Pilihan tidak valid. Silahkan masukkan 1 atau 2.\n";
+        	system ("cls");
+            cout << "Pilihan tidak valid...\n";
+            exit(0);
         }
 	}
 	cout<<("\n\n\n\n\n\n\n\n\n");
@@ -239,12 +260,11 @@ void game(int level){
 				DrawGameOver(score);
 				break;
 			}
+		}
 	}
-}
 }
 
 void game_start(){
-	//clear();
 	while (true)
 	{
 	int x = 23;
@@ -299,12 +319,19 @@ void game_start(){
 		}
 		else if (select == '5')
 		{
-			system("utama");
-			game_start();
+			system("main.exe");
 			break;
 		}
+		else {
+        	system ("cls");
+            cout << "Pilihan tidak valid...\n";
+            system ("cls");
+            game_start();
+            exit(0);
+        }
 	}
 }
+
 
 int main(){
 	game_start();

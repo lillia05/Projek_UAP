@@ -1,6 +1,7 @@
 #include <curses.h>
 #include <windows.h>
 #include <iostream>
+#include <unistd.h>
 using namespace std;
 
 void utama();
@@ -43,9 +44,9 @@ void utama(){
 	curs_set(0);
 	int nlines =5; int ncols = 32; int y0 = 1; int x0=5;
 	WINDOW *win = newwin(nlines, ncols, y0, x0);
-	//system("color E0");
 	initscr();
 	
+	Sleep(500);
 	mvprintw(7,25,"  _____   ____        _____   ____       _____  _______ _   _   ____  ");
 	mvprintw(8,25," / ____| / __ \\      / ____| / __ \\     |  __ \\ |_   _|| \\ | | / __ \\ ");
 	mvprintw(9,25,"| |  __ | |  | |    | |  __ | |  | |    | |  | |  | |  |  \\| || |  | |");
@@ -87,6 +88,7 @@ void utama(){
 			exit(0);
 		}
 	}
+	getch();
 	endwin();
 }
 
